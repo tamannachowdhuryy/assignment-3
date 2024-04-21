@@ -1,18 +1,31 @@
-/*==================================================
-/src/components/containers/index.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
-This is a "barrel" file for the Container components, which combines all the exports of individual Containers
-and makes it easier to import into App.js.
+// Redux
+import { Provider } from "react-redux";
+import store from "./store";
 
-Note: A "barrel" file is a way to rollup exports from other modules into a single convenient module. 
-The "barrel" (module) file re-exports the exports of other modules.
-================================================== */
-export { default as HomePageContainer } from "./HomePageContainer";
-export { default as AllCampusesContainer } from "./AllCampusesContainer";
-export { default as CampusContainer } from "./CampusContainer";
-export { default as AllStudentsContainer } from "./AllStudentsContainer";
-export { default as StudentContainer } from "./StudentContainer";
-export { default as NewStudentContainer } from "./NewStudentContainer";
-export { default as NewCampusContainer } from "./NewCampusContainer";
-export { default as EditStudentContainer } from "./EditStudentContainer";
-export { default as EditCampusContainer} from "./EditCampusContainer";
+// Router
+import { BrowserRouter } from "react-router-dom";
+
+// React.StrictMode will activate additional checkings and warnings when app violates certain React rules
+// The Provider component makes the Redux Store available to any nested components that need to access the Redux Store. 
+// The BrowserRouter component sets a common basename for the nested Routes.
+ReactDOM.render(
+  <React.StrictMode>
+    <Provider store={store}> {/* All the components wrapped in the Provider can access store */}
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>
+  </React.StrictMode>,
+  document.getElementById('root')
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();

@@ -19,10 +19,13 @@ class NewStudentContainer extends Component {
     super(props);
     this.state = {
       firstname: "", 
-      lastname: "", 
-      campusId: null, 
+      lastname: "",
+      email: "",
+      imageUrl: null,
+      gpa: null, 
+      campusId: null,
       redirect: false, 
-      redirectId: null
+      redirectId: null,
     };
   }
 
@@ -37,23 +40,40 @@ class NewStudentContainer extends Component {
   handleSubmit = async event => {
     event.preventDefault();  // Prevent browser reload/refresh after submit.
 
+    const firstName = event.target.firstname.value;
+    const lastName = event.target.lastname.value;
+    const email = event.target.email.value;
+    
+    if(firstName === "" || lastName === "" || email === ""){
+      alert("Please make sure first name, last name and email are filled in.")
+      return;
+    }
+
+
     let student = {
         firstname: this.state.firstname,
         lastname: this.state.lastname,
+        email: this.state.email,
+        imageUrl: this.state.imageUrl,
+        gpa: this.state.gpa,
         campusId: this.state.campusId
     };
     
     // Add new student in back-end database
     let newStudent = await this.props.addStudent(student);
 
-    // Update state, and trigger redirect to show the new student
-    this.setState({
-      firstname: "", 
-      lastname: "", 
-      campusId: null, 
-      redirect: true, 
-      redirectId: newStudent.id
-    });
+    // Update state, and trigger redirect to show the new student// Update state, and trigger redirect to show the new student
+  this.setState({
+    firstname: "", 
+    lastname: "",
+    email: "",
+    imageUrl: null, 
+    gpa: null,
+    campusId: null, 
+    redirect: true, 
+    redirectId: newStudent.id
+  });
+
   }
 
   // Unmount when the component is being removed from the DOM:
