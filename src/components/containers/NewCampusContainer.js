@@ -95,7 +95,7 @@ class NewCampusContainer extends Component {
 
 // The following input argument is passed to the "connect" function used by "NewCampusContainer" component to connect to Redux Store.
 // The "mapDispatch" argument is used to dispatch Action (Redux Thunk) to Redux Store.
-// The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
+// The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Stores.
 const mapDispatch = (dispatch) => {
     return({
         addCampus: (campus) => dispatch(addCampusThunk(campus)),

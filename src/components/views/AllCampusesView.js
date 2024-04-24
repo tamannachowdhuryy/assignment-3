@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 
 const AllCampusesView = (props) => {
-  // Destructure props directly to access allCampuses and deleteCampus
+  // Destructure props directly to access allCampuses and deleteCampu
   const { allCampuses, deleteCampus } = props;
   
   // If there are no campuses, display a message.

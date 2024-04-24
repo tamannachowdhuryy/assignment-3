@@ -23,7 +23,7 @@ class AllCampusesContainer extends Component {
     this.props.fetchAllCampuses();
   }
 
-  // Render All Campuses view by passing all campuses data as props to the corresponding View component
+  // Render All Campuses view by passing all campuses data as props to the corresponding View components
   render() {
     return (
       <div>

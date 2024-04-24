@@ -38,7 +38,7 @@ const NewCampusView = (props) => {
   const {handleChange, handleSubmit } = props;
   const classes = useStyles();
 
-  // Render a New Campus view with an input form
+  // Render a New Campus view with an input form needed to add a new campus
   return (
     <div>
       <h1>New Campus</h1>
@@ -70,8 +70,8 @@ const NewCampusView = (props) => {
             <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
-
-            <Button variant="contained" color="primary" type="submit">
+            // Button to submit the form
+            <Button variant="contained" color="primary" type="submit"> 
               Submit
             </Button>
             <br/>
