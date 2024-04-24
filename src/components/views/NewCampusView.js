@@ -70,8 +70,8 @@ const NewCampusView = (props) => {
             <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
             <br/>
             <br/>
-
-            <Button variant="contained" color="primary" type="submit">
+            // Button to submit the form
+            <Button variant="contained" color="primary" type="submit"> 
               Submit
             </Button>
             <br/>
