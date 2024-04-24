@@ -1,7 +1,7 @@
 /*==================================================
 CampusView.js
 
-The Views component is responsible for rendering web page with data provided by the corresponding Container component.
+The Views component is responsible for rendering web page with data provided by the corresponding Container components.
 It constructs a React component to display a single campus and its students (if any).
 ================================================== */
 import { Link } from "react-router-dom";
