@@ -7,8 +7,8 @@ It constructs a React component to display the single student view page.
 import { Link } from "react-router-dom"
 const StudentView = (props) => {
   const { student, deleteStudent } = props;
-
-  // Render a single Student view 
+ 
+  // Render a single Student view with list of its students
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>

@@ -38,7 +38,7 @@ const EditStudentView = (props) => {
     const { handleChange, handleSubmit, student } = props;
     const classes = useStyles();
 
-    // Render a Edit Student view with an input form
+    // Render a Edit Student view with an input form needed to edit a student
     return(
         <div>
             <h1>Edit Student {student.firstname} {student.lastname}</h1>

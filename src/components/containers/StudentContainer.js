@@ -49,6 +49,6 @@ const mapDispatch = (dispatch) => {
 };
 
 // Export store-connected container by default
-// StudentContainer uses "connect" function to connect to Redux Store and to read values from the Store 
+// StudentContainer uses "connect" function to connect to Redux Store and to read values from the Stores 
 // (and re-read the values when the Store State updates).
 export default connect(mapState, mapDispatch)(StudentContainer);
