@@ -38,7 +38,7 @@ class NewStudentContainer extends Component {
 
   // Take action after user click the submit button
   handleSubmit = async event => {
-    event.preventDefault();  // Prevent browser reload/refresh after submit.
+    event.preventDefault();  // Prevent browser reload/refresh after submits.
 
     const firstName = event.target.firstname.value;
     const lastName = event.target.lastname.value;
