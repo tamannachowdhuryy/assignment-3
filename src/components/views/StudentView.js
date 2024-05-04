@@ -1,30 +1,66 @@
-/*==================================================
-StudentView.js
+import React from 'react';
+import { Link } from "react-router-dom";
+import Button from '@material-ui/core/Button';
 
-The Views component is responsible for rendering web page with data provided by the corresponding Container component.
-It constructs a React component to display the single student view page.
-================================================== */
-import { Link } from "react-router-dom"
 const StudentView = (props) => {
   const { student, deleteStudent } = props;
- 
-  // Render a single Student view with list of its students
+
+  const displayField = (field) => field || 'Unknown'; // Function to handle empty fields
+
+  const formatGPA = (gpa) => {
+    return gpa && !isNaN(Number(gpa)) ? Number(gpa).toFixed(2) : "Unknown";
+  };
+  
   return (
     <div>
       <h1>{student.firstname + " " + student.lastname}</h1>
-      {student.imageUrl && <img src={student.imageUrl} alt={student.name} style={{width: 200, height: 100}}></img>}
-      {student.email && <p>{student.email}</p>}
-      {student.gpa && <p>GPA: {student.gpa}</p>}
-      {student.campus ? (<Link to={`/campus/${student.campus.id}`}><h3>{student.campus.name}</h3></Link>) : (<p style={{fontWeight: 'bold'}}>[STUDENT IS IN NO CAMPUS]</p>)}
-      <Link to={`/editstudents/${student.id}`}>
-        <button>Edit Student</button>
-      </Link>
-      <Link to={`/students`}>
-        <button onClick={() => deleteStudent(student.id)}>Delete Student</button>
-      </Link>
+      <div style={{
+        backgroundColor: "white",
+        paddingTop: "2em",
+        paddingBottom: "2em",
+        marginRight: "10em",
+        marginLeft: "10em",
+        borderRadius: '10px',
+        boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
+      }}>
+        <img
+          src={student.imageurl || "https://www.pngfind.com/pngs/m/163-1631127_student-school-study-skills-college-test-students-pictures.png"}
+          alt={`${student.firstname} ${student.lastname}`}
+          style={{
+            maxWidth: '100%',
+            maxHeight: '100px',
+            borderRadius: '50%',
+            height: 'auto',
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }}
+        />
+        <p><strong>First Name: </strong>{displayField(student.firstname)}</p>
+        <p><strong>Last Name: </strong>{displayField(student.lastname)}</p>
+        <p><strong>Email: </strong>{displayField(student.email)}</p>
+        <p><strong>GPA: </strong> {formatGPA(student.gpa)}</p>
+
+        {student.campus ? (
+          <p>
+            <strong>Attends: </strong>
+            <Link to={`/campus/${student.campus.id}`} style={{ textDecoration: 'none' }}>
+              <strong>{student.campus.name}</strong>
+            </Link>
+          </p>
+        ) : (
+          <p><strong>{student.firstname} does not currently attend a college.</strong></p>
+        )}
+
+        <div style={{ marginTop: '1em' }}>
+          <Link to={`/editstudent/${student.id}`}>
+            <Button style={{ color: "white", backgroundColor: "grey", marginRight: "0.5em" }}>Edit Student</Button>
+          </Link>
+          <Button style={{ color: "white", backgroundColor: "red" }} onClick={() => deleteStudent(student.id)}>Delete Student</Button>
+        </div>
+      </div>
     </div>
   );
-
 };
 
 export default StudentView;

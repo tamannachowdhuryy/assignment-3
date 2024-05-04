@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     marginTop: theme.spacing(5),
   },
-  
   formTitle: {
     backgroundColor: '#c5c8d6',
     marginBottom: theme.spacing(3),
