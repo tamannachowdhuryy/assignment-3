@@ -6,46 +6,75 @@ It constructs a React component to display all campuses.
 ================================================== */
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import Button from "@material-ui/core/Button";
 
 const AllCampusesView = (props) => {
-  // Destructure props directly to access allCampuses and deleteCampu
-  const { allCampuses, deleteCampus } = props;
-  
-  // If there are no campuses, display a message.
-  if (!allCampuses.length) {
+  // If there is no campus, display a message.
+  if (!props.allCampuses.length) {
     return (
-      <div>
+      <div style={{ paddingTop: "1em" }}>
         <p>There are no campuses.</p>
-        <Link to="/newcampus">
-          <button>Add New Campus</button>
+        <Link to={`newcampus`}>
+          <Button style={{ color: "white", backgroundColor: "grey" }}>
+            Add New Campus
+          </Button>
         </Link>
       </div>
     );
   }
 
-  // If there is at least one campus, render All Campuses view 
   return (
     <div>
-      <h1>All Campuses</h1>
+      <h1 style={{ textDecoration: "underline" }}>All Campuses</h1>
 
-      {allCampuses.map((campus) => (
+      {props.allCampuses.map((campus) => (
         <div key={campus.id}>
-          <Link to={`/campus/${campus.id}`}>
-            <h2>{campus.name}</h2>
+          <Link to={`/campus/${campus.id}`} style={{ textDecoration: "none" }}>
+            <h2
+              style={{
+                color: "rgb(85, 26, 139)",
+                cursor: "pointer",
+                transition: "color 0.3s ease",
+              }}
+              onMouseOver={(e) => {
+                e.currentTarget.style.textDecoration = "underline";
+              }}
+              onMouseOut={(e) => {
+                e.currentTarget.style.textDecoration = "none";
+              }}
+            >
+              {campus.name}
+            </h2>
           </Link>
-          <img src={campus.imageUrl} alt="School" style={{ width: 500, height: 300 }} />
-          <h4>campus id: {campus.id}</h4>
-          <p>{campus.address}</p>
-          <p>{campus.description}</p>
-          <button onClick={() => deleteCampus(campus.id)}>Delete</button>
+          <img
+            src={
+              campus.imageurl ||
+              "https://www.zillowstatic.com/bedrock/app/uploads/sites/26/shutterstock_262043447-dedc70.jpg"
+            }
+            alt={`Campus - ${campus.name}`}
+            style={{
+              maxWidth: "100%",
+              maxHeight: "100px",
+              borderRadius: "8px",
+              boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+            }}
+          />
+
+          <h4>
+            Campus ID: {campus.id} | Total Students Enrolled:{" "}
+            {campus.students.length}
+          </h4>
           <hr />
         </div>
       ))}
       <br />
-      <Link to="/newcampus">
-        <button>Add New Campus</button>
+      <Link to={`/newcampus`}>
+        <Button style={{ color: "white", backgroundColor: "rgb(85, 26, 139)" }}>
+          Add New Campus
+        </Button>
       </Link>
-      <br/><br/>
+      <br />
+      <br />
     </div>
   );
 };

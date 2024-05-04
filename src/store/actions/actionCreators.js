@@ -1,3 +1,4 @@
+import { campus } from '../reducers';
 import * as at from './actionTypes';
 
 // ACTION CREATORS;
@@ -13,20 +14,25 @@ export const fetchAllCampuses = (campuses) => {
   };
 };
 
+//Single Campus
+export const fetchCampus = (campus) => {
+  return {
+    type: at.FETCH_CAMPUS,
+    payload: campus,
+  };
+};
 export const addCampus = (campus) => {
   return {
     type: at.ADD_CAMPUS,
-    payload: campus
+    payload: campus,
   };
 };
-
 export const deleteCampus = (campusId) => {
-  return{
+  return {
     type: at.DELETE_CAMPUS,
     payload: campusId,
   };
 };
-
 export const editCampus = (campus) => {
   return {
     type: at.EDIT_CAMPUS,
@@ -34,11 +40,24 @@ export const editCampus = (campus) => {
   };
 };
 
-//Single Campus
-export const fetchCampus = (campus) => {
+export const enrollNewStudent = (student) => {
   return {
-    type: at.FETCH_CAMPUS,
-    payload: campus,
+    type: at.ENROLL_NEW_STUDENT,
+    payload: student,
+  };
+};
+
+export const enrollExistingStudent = (student) => {
+  return {
+    type: at.ENROLL_EXISTING_STUDENT,
+    payload: student,
+  };
+};
+
+export const unenrollStudent = (studentId) => {
+  return {
+    type: at.UNENROLL_STUDENT,
+    payload: studentId,
   };
 };
 

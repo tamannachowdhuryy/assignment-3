@@ -21,13 +21,13 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
     textAlign: 'left',
-    fontType: 'bold',
+    fontWeight: 'bold',
     fontFamily: 'sans-serif', 
     fontSize: '35px', 
-    color: 'darkblue'
+    color: 'white'
   },
   appBar:{
-    backgroundColor: '#fcb6bb',
+    backgroundColor: '#003546',
     shadows: ['none'],
   },
   greeting:{
