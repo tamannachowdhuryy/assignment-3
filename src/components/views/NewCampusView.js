@@ -1,86 +1,89 @@
-/*==================================================
-NewCampusView.js
-
-The Views component is responsible for rendering web page with data provided by the corresponding Container component.
-It constructs a React component to display the new Campus page.
-================================================== */
+import React from 'react';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 
-// Create styling for the input form
-const useStyles = makeStyles( () => ({
-  formContainer:{  
+const useStyles = makeStyles((theme) => ({
+  formContainer: {
     width: '500px',
+    padding: theme.spacing(3),
     backgroundColor: '#f0f0f5',
     borderRadius: '5px',
+    boxShadow: '0 4px 8px rgba(0, 0, 0, 0.12)',
     margin: 'auto',
+    marginTop: theme.spacing(5),
   },
-  title: {
-    flexGrow: 1,
-    textAlign: 'left',
-    textDecoration: 'none'
-  }, 
-  customizeAppBar:{
-    backgroundColor: '#11153e',
-    shadows: ['none'],
-  },
-  formTitle:{
-    backgroundColor:'#c5c8d6',
-    marginBottom: '15px',
+  formTitle: {
+    backgroundColor: '#c5c8d6',
+    marginBottom: theme.spacing(3),
     textAlign: 'center',
-    borderRadius: '5px 5px 0px 0px',
-    padding: '3px'
+    borderRadius: '5px 5px 0 0',
+    padding: theme.spacing(1),
+    color: '#11153e',
+    fontWeight: 'bold',
+    fontFamily: 'Courier, sans-serif',
+    fontSize: '20px',
   },
+  input: {
+    width: '100%',
+    padding: '12px 15px',
+    margin: '10px 0',
+    display: 'inline-block',
+    border: '1px solid #ccc',
+    borderRadius: '4px',
+    boxSizing: 'border-box',
+    transition: 'border-color .3s',
+    '&:focus': {
+      borderColor: '#3f51b5',
+      boxShadow: '0 0 8px rgba(63, 81, 181, 0.5)',
+    }
+  },
+  label: {
+    color: '#11153e',
+    fontWeight: 'bold',
+    display: 'block',
+    marginBottom: theme.spacing(1),
+  },
+  button: {
+    marginTop: theme.spacing(4),
+    padding: theme.spacing(1.5),
+    fontSize: '16px',
+    width: '100%',
+  }
 }));
 
-const NewCampusView = (props) => {
-  const {handleChange, handleSubmit } = props;
+const NewCampusView = ({ handleChange, handleSubmit }) => {
   const classes = useStyles();
 
-  // Render a New Campus view with an input form needed to add a new campus
   return (
     <div>
-      <h1>New Campus</h1>
+      <Typography variant="h4" style={{ textAlign: 'center', margin: '20px 0' }}>
+        Add New Campus
+      </Typography>
+      <div className={classes.formContainer}>
+        <div className={classes.formTitle}>
+          Campus Details
+        </div>
+        <form onSubmit={handleSubmit} style={{ textAlign: 'center' }}>
+          <label className={classes.label}>Name:</label>
+          <input className={classes.input} type="text" name="name" required onChange={handleChange} />
+          
+          <label className={classes.label}>Image URL:</label>
+          <input className={classes.input} type="text" name="imageurl" onChange={handleChange} />
 
-      <div className={classes.root}>
-        <div className={classes.formContainer}>
-          <div className={classes.formTitle}>
-            <Typography style={{fontWeight: 'bold', fontFamily: 'Courier, sans-serif', fontSize: '20px', color: '#11153e'}}>
-              Add a Campus
-            </Typography>
-          </div>
-          <form style={{textAlign: 'center'}} onSubmit={(e) => handleSubmit(e)}>
-            <label style= {{color:'#11153e', fontWeight: 'bold'}}>Campus Name: </label>
-            <input type="text" name="name" onChange ={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+          <label className={classes.label}>Address:</label>
+          <input className={classes.input} type="text" name="address" required onChange={handleChange} />
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus Address: </label>
-            <input type="text" name="address" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
+          <label className={classes.label}>Description:</label>
+          <textarea className={classes.input} name="description" onChange={handleChange} rows="4" style={{ resize: 'none' }} />
 
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Campus description: </label>
-            <input type="text" name="description" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
-
-            <label style={{color:'#11153e', fontWeight: 'bold'}}>Image URL: </label>
-            <input type="text" name="imageUrl" onChange={(e) => handleChange(e)} />
-            <br/>
-            <br/>
-            // Button to submit the form
-            <Button variant="contained" color="primary" type="submit"> 
-              Submit
-            </Button>
-            <br/>
-            <br/>
-          </form>
-          </div>
+          <Button className={classes.button} variant="contained" color="primary" type="submit">
+            Submit
+          </Button>
+        </form>
       </div>
-    </div>    
-  )
-}
+    </div>
+  );
+};
 
 export default NewCampusView;
