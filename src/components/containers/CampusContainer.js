@@ -7,8 +7,9 @@ If needed, it also defines the component's "connect" function.
 ================================================== */
 import Header from './Header';
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
-import { fetchCampusThunk, deleteCampusThunk } from "../../store/thunks";
+import { fetchCampusThunk, deleteCampusThunk, editCampusThunk, enrollNewStudentThunk, editStudentThunk } from "../../store/thunks";
 
 import { CampusView } from "../views";
 
@@ -19,20 +20,52 @@ class CampusContainer extends Component {
     this.props.fetchCampus(this.props.match.params.id);
   }
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      redirect:null
+    };
+  }
+
   // Render a Campus view by passing campus data as props to the corresponding View component
   render() {
     return (
       <div>
         <Header />
         <CampusView 
-          campus={this.props.campus}
-          deleteCampus={this.props.deleteCampus} 
+          campus={this.props.campus} 
+          editCampus={this.props.editCampus}
+          deleteCampus={this.deleteCampus}
+          unenrollStudent={this.unenrollStudent}
+          enrollStudent={this.props.enrollStudent}
         />
+        {this.state.redirect && (
+            <Redirect to={`/campuses`} />
+        )}
       </div>
     );
   }
-}
 
+  // Go back to all students page after deleting student
+  deleteCampus = async (studentId) => {
+    await this.props.deleteCampus(studentId);
+    this.setState({ redirect: true });
+  }
+  
+  //Delete student from campus but not from database
+  unenrollStudent = async (student) => {
+    student = {
+        firstname: this.state.firstname,
+        lastname: this.state.lastname,
+        campusId: null,
+        id: student.id
+    };
+    await this.props.unenrollStudent(student);
+    this.setState({ redirect: false }, () => {
+      this.props.fetchCampus(this.props.campus.id);
+    });
+  }
+}
 // The following 2 input arguments are passed to the "connect" function used by "CampusContainer" component to connect to Redux Store.
 // 1. The "mapState" argument specifies the data from Redux Store that the component needs.
 // The "mapState" is called when the Store State changes, and it returns a data object of "campus".
@@ -42,11 +75,14 @@ const mapState = (state) => {
   };
 };
 // 2. The "mapDispatch" argument is used to dispatch Action (Redux Thunk) to Redux Store.
-// The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Stores.
+// The "mapDispatch" calls the specific Thunk to dispatch its action. The "dispatch" is a function of Redux Store.
 const mapDispatch = (dispatch) => {
   return {
     fetchCampus: (id) => dispatch(fetchCampusThunk(id)),
-    deleteCampus: (campusId) => dispatch(deleteCampusThunk(campusId)),
+    deleteCampus: (id) => dispatch(deleteCampusThunk(id)),
+    editCampus: (campus) => dispatch(editCampusThunk(campus)),
+    unenrollStudent: (studentId) => dispatch(editStudentThunk(studentId)),
+    enrollNewStudent: (campusId) => dispatch(enrollNewStudentThunk(campusId)),
   };
 };
 
