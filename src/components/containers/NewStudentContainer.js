@@ -60,7 +60,7 @@ class NewStudentContainer extends Component {
     };
     
     // Add new student in back-end database
-    let newStudent = await this.props.addStudent(student);
+    let newStudent = await this.props.addStudent(student); // Dispatch action to add new student to Redux Store
 
     // Update state, and trigger redirect to show the new student
     this.setState({
@@ -84,7 +84,7 @@ class NewStudentContainer extends Component {
   render() {
     // Redirect to new student's page after submit
     if(this.state.redirect) {
-      return (<Redirect to={`/student/${this.state.redirectId}`}/>)
+      return (<Redirect to={`/student/${this.state.redirectId}`}/>) // Redirect to the new student's page
     }
 
     // Display the input form via the corresponding View component

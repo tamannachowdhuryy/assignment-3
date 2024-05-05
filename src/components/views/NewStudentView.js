@@ -44,7 +44,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'block',
     marginBottom: theme.spacing(0.5),
   },
-  button: {
+  button: { // CSS for the button
     marginTop: theme.spacing(2),
     padding: theme.spacing(1),
     fontSize: '16px',

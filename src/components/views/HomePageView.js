@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       boxShadow: '0 8px 16px rgba(0,0,0,0.2)',
     },
   },
-  heading: {
+  heading: { // CSS for the heading
     textDecoration: 'none', 
     fontWeight: 'bold', 
     color: '#333', 

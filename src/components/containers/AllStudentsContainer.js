@@ -30,7 +30,7 @@ class AllStudentsContainer extends Component {
         <Header />
         <AllStudentsView 
           students={this.props.allStudents}
-          deleteStudent={this.props.deleteStudent}   
+          deleteStudent={this.props.deleteStudent}   // Pass the deleteStudent function to the View component
         />
       </div>
     )
