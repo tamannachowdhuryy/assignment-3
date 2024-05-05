@@ -12,9 +12,9 @@ const useStyles = makeStyles((theme) => ({
   },
   campusCard: {
     display: 'flex',
-    flexDirection: 'row', 
+    flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'space-between', 
+    justifyContent: 'space-between',
     padding: theme.spacing(2),
     marginBottom: theme.spacing(3),
     boxShadow: '0 3px 6px rgba(0,0,0,0.12)',
@@ -31,11 +31,11 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     alignItems: 'center',
     textAlign: 'left',
-    flexGrow: 1, 
+    flexGrow: 1,
   },
   campusImage: {
-    width: '250px', 
-    height: '160px', 
+    width: '250px',
+    height: '160px',
     borderRadius: '4px',
     objectFit: 'cover',
     marginRight: theme.spacing(2),
@@ -88,7 +88,7 @@ const AllCampusesView = ({ allCampuses }) => {
                 {campus.name}
               </Typography>
               <Typography variant="body2" color="textSecondary">
-                Campus ID: {campus.id} | Total Students: {campus.students.length}
+                Campus ID: {campus.id} | Total Students: {campus.students ? campus.students.length : 0}
               </Typography>
             </div>
           </Link>
