@@ -8,6 +8,7 @@ const useStyles = makeStyles((theme) => ({
     margin: 'auto',
     padding: theme.spacing(4),
     textAlign: 'center',
+    backgroundColor: '#0004D3',
   },
   infoCard: {
     padding: theme.spacing(3),
@@ -22,8 +23,9 @@ const useStyles = makeStyles((theme) => ({
   heading: { // CSS for the heading
     textDecoration: 'none', 
     fontWeight: 'bold', 
-    color: '#333', 
+    color: 'white', 
     marginBottom: theme.spacing(3),
+    fontSize: '3rem',
   },
   addButton: {
     marginTop: theme.spacing(2),

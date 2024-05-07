@@ -11,7 +11,7 @@ const useStyles = makeStyles((theme) => ({
       borderRadius: '5px',
       boxShadow: '0 4px 8px rgba(0, 0, 0, 0.12)',
       margin: 'auto',
-      marginTop: theme.spacing(4)
+      marginTop: theme.spacing(4),
     },
     formTitle: {
       backgroundColor: '#c5c8d6',
