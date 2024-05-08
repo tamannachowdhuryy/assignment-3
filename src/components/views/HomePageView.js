@@ -9,6 +9,10 @@ const useStyles = makeStyles((theme) => ({
     padding: theme.spacing(4),
     textAlign: 'center',
     backgroundColor: '#0004D3',
+    borderRadius: '20px', // Adjust the value as needed for the desired curvature
+    marginTop: '120px', // Adjust the value to lower it from the nav bar
+    marginBottom: '50px',
+
   },
   infoCard: {
     padding: theme.spacing(3),
