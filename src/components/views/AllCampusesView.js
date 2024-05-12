@@ -82,7 +82,7 @@ const AllCampusesView = ({ allCampuses }) => {
       {allCampuses.map((campus) => (
         <Paper key={campus.id} className={classes.campusCard}>
           <Link to={`/campus/${campus.id}`} style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}>
-            <img src={campus.imageurl || 'https://via.placeholder.com/400x200'} alt={`Campus - ${campus.name}`} className={classes.campusImage} />
+            <img src={campus.imageurl || 'https://pbs.twimg.com/profile_images/1676600958153904131/OSV4hFd7_400x400.png'} alt={`Campus - ${campus.name}`} className={classes.campusImage} />
             <div className={classes.campusDetails}>
               <Typography gutterBottom variant="h5" component="h2" className={classes.campusName}>
                 {campus.name}
