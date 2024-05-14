@@ -14,7 +14,7 @@ class NewCampusContainer extends Component {
       name: "", 
       description: "", 
       address: "",
-      imageurl: "",
+      imageUrl: "",
       campusId: null, 
       redirect: false, 
       redirectId: null
@@ -36,7 +36,7 @@ class NewCampusContainer extends Component {
         name: this.state.name,
         address: this.state.address,
         description: this.state.description,
-        imageurl: this.state.imageurl,
+        imageUrl: this.state.imageUrl,
     };
     
     // Add new student in back-end database
@@ -47,7 +47,7 @@ class NewCampusContainer extends Component {
       name: "", 
       address: "", 
       description: "",
-      imageurl: "", 
+      imageUrl: "", 
       redirect: true, 
       redirectId: newCampus.id
     });

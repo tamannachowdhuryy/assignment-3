@@ -69,7 +69,7 @@ const NewCampusView = ({ handleChange, handleSubmit }) => {
           <input className={classes.input} type="text" name="name" required onChange={handleChange} />
           
           <label className={classes.label}>Image URL:</label>
-          <input className={classes.input} type="text" name="imageurl" onChange={handleChange} />
+          <input className={classes.input} type="text" name="imageUrl" onChange={handleChange} />
 
           <label className={classes.label}>Address:</label>
           <input className={classes.input} type="text" name="address" required onChange={handleChange} />

@@ -20,7 +20,7 @@ class EnrollNewStudentContainer extends Component {
     this.state = {
       firstname: "", 
       lastname: "", 
-      imageurl: "",
+      imageUrl: "",
       gpa: 0.0,
       email: "",
       campusId: null, 
@@ -44,7 +44,7 @@ class EnrollNewStudentContainer extends Component {
         lastname: this.state.lastname,
         campusId: this.props.location.query.campus_id,
         email: this.state.email,
-        imageurl: this.state.imageurl,
+        imageUrl: this.state.imageUrl,
         gpa: this.state.gpa
     };
     

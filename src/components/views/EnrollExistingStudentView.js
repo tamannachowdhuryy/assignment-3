@@ -42,7 +42,7 @@ const EnrollExistingStudentView = (props) => {
                   <h2>{name}</h2>
                 </Link>
                 <img
-                  src={student.imageurl || "https://www.pngfind.com/pngs/m/163-1631127_student-school-study-skills-college-test-students-pictures.png"}  // Use default if imageUrl is falsy
+                  src={student.imageUrl || "https://www.pngfind.com/pngs/m/163-1631127_student-school-study-skills-college-test-students-pictures.png"}  // Use default if imageUrl is falsy
                   style={{ maxWidth: '100%', maxHeight: '100px', borderRadius:'50%', height:'auto', maxWidth:'100%' }}  // Adjust styling as needed
                 />
                 <br></br>

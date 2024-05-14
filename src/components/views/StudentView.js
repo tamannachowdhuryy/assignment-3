@@ -24,7 +24,7 @@ const StudentView = (props) => {
         boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
       }}>
         <img
-          src={student.imageurl || "https://www.pngfind.com/pngs/m/163-1631127_student-school-study-skills-college-test-students-pictures.png"}
+          src={student.imageUrl || "https://www.pngfind.com/pngs/m/163-1631127_student-school-study-skills-college-test-students-pictures.png"}
           alt={`${student.firstname} ${student.lastname}`}
           style={{
             maxWidth: '100%',

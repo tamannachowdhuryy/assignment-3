@@ -75,7 +75,7 @@ const useStyles = makeStyles((theme) => ({
             <input className={classes.input} type="email" name="email" required onChange={handleChange} />
   
             <label className={classes.label}>Image URL:</label>
-            <input className={classes.input} type="text" name="imageurl" onChange={handleChange} />
+            <input className={classes.input} type="text" name="imageUrl" onChange={handleChange} />
   
             <label className={classes.label}>GPA:</label>
             <input className={classes.input} type="number" step="0.1" min="0" max="4" name="gpa" onChange={handleChange} />

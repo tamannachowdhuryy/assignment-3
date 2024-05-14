@@ -29,8 +29,8 @@ const CampusView = (props) => {
       >
         <img
           src={
-            campus.imageurl ||
-            "https://www.zillowstatic.com/bedrock/app/uploads/sites/26/shutterstock_262043447-dedc70.jpg"
+            campus.imageUrl ||
+            "https://pbs.twimg.com/profile_images/1676600958153904131/OSV4hFd7_400x400.png"
           }
           alt={`Campus - ${campus.name}`}
           style={{
